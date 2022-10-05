@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { AppShell } from '@mantine/core';
 import { AppHeader } from './AppHeader';
 import { AppNavbar } from './AppNavbar';
+import { Outlet, Route, Routes } from 'react-router-dom';
 
 type CustomAppShellProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 export function CustomAppShell(props: CustomAppShellProps) {
   const { children } = props;
@@ -12,10 +13,10 @@ export function CustomAppShell(props: CustomAppShellProps) {
   return (
     <AppShell
       navbarOffsetBreakpoint="md"
-      navbar={ <AppNavbar opened={opened} />}
-      header={ <AppHeader opened={opened} setOpened={setOpened} /> }
+      navbar={<AppNavbar opened={opened} />}
+      header={<AppHeader opened={opened} setOpened={setOpened} />}
     >
-      {children}
+      <Outlet />
     </AppShell>
   );
 }
