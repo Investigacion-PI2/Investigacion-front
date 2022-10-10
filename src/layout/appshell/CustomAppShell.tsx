@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { AppShell } from '@mantine/core';
 import { AppHeader } from './AppHeader';
 import { AppNavbar } from './AppNavbar';
-import { ScreenApp } from '../screen/ScreenApp';
+
 import { Outlet, Route, Routes } from 'react-router-dom';
 
 type CustomAppShellProps = {
@@ -17,7 +17,7 @@ export function CustomAppShell(props: CustomAppShellProps) {
       navbar={<AppNavbar opened={opened} />}
       header={<AppHeader opened={opened} setOpened={setOpened} />}
     >
-      <ScreenApp/>
+      
       <Outlet />
     </AppShell>
   );

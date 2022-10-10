@@ -4,6 +4,7 @@ import { IconChevronRight } from '@tabler/icons';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LandingHeader } from './LandingHeader'
+import { ScreenApp } from '../screen/ScreenApp';
 
 type LandingProps = {
 }
@@ -23,7 +24,7 @@ export function Landing(props: LandingProps) {
           <Menu.Item icon={<IconChevronRight size={14} />}>Ingeniería y Diseño</Menu.Item>
           <Menu.Item icon={<IconChevronRight size={14} />}>Ingeniería y Diseño</Menu.Item>
         </Menu.Dropdown>
-      </Menu>
+      </Menu>  
     )
   }
   return (
@@ -37,6 +38,7 @@ export function Landing(props: LandingProps) {
           {filteringOptions("left-start")}
         </Stack>
       </Drawer>
+      <ScreenApp/>
     </>
   );
 }
