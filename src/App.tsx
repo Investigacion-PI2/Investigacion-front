@@ -1,5 +1,6 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { CustomAppShell } from "./layout/appshell/CustomAppShell";
+import {Login} from "./layout/auth/Login";
 import { Landing } from "./layout/landing/Landing";
 
 export function App() {
@@ -7,7 +8,7 @@ export function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/login" element={<div>this is a login</div>} />
+        <Route path="/login" element={<Login/>} />
         <Route path="/app" element={<CustomAppShell />}>
           <Route path="" element={<div>START PAGE</div>} />
           <Route path="all" element={<div>ALL GROUPS</div>} />
