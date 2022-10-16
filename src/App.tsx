@@ -1,6 +1,10 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { CustomAppShell } from "./layout/appshell/CustomAppShell";
 import { Landing } from "./layout/landing/Landing";
+import { RegisterResearchGroup } from "./layout/research_groups/RegisterResearchGroup";
+
+
+
 
 export function App() {
   return (
@@ -12,6 +16,7 @@ export function App() {
           <Route path="" element={<div>START PAGE</div>} />
           <Route path="all" element={<div>ALL GROUPS</div>} />
           <Route path="mygroup" element={<div>MY GROUPS</div>} />
+          <Route path="registerResearchGroup" element={<RegisterResearchGroup/>}></Route>
           <Route path="*" element={<div>NOT FOUND</div>} />
         </Route>
       </Routes>
