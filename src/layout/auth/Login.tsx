@@ -17,22 +17,22 @@ import {
     MantineProvider,
     createStyles,  Title, Overlay
   } from '@mantine/core';
+import { Link } from 'react-router-dom';
 
   const useStyles = createStyles((theme) => ({
     hero: {
       position: 'relative',
-      backgroundImage: 'url(/public/saman.jpeg)',
+      backgroundImage: 'url(/saman.jpeg)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
     },
   
     container: {
-      height: 700,
+      height: '100vh',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'flex-start',
-      paddingBottom: theme.spacing.xl * 6,
       zIndex: 1,
       position: 'relative',
   
@@ -189,7 +189,7 @@ export function Login (props: PaperProps) {
                     
                 </Anchor>
                 <div className={classes.button}>
-                <Button type="submit" >Iniciar sesión</Button>
+                <Link to={'/app/registerResearchGroup'}><Button>Iniciar sesión</Button></Link>
                 </div>
                 </Group>
             </form>
