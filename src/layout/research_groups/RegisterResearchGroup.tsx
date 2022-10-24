@@ -21,6 +21,7 @@ import {
     formBox:{
       width:600,
       paddingLeft:230,
+      paddingRight:230,
     },
     hero: {
       position: 'relative',
