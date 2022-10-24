@@ -12,10 +12,16 @@ import {
     Stack,
     Container,
     MantineProvider,
-    createStyles
+    createStyles,
+    Textarea
   } from '@mantine/core';
 
   const useStyles = createStyles((theme) => ({
+
+    formBox:{
+      width:600,
+      paddingLeft:230,
+    },
     hero: {
       position: 'relative',
       backgroundSize: 'cover',
@@ -101,15 +107,16 @@ export function RegisterResearchGroup (props: PaperProps) {
     const form = useForm({
       initialValues: {
         name: '',
-        leader_id:'',
+        institution:'',
        faculty_id:'',
+       description:'',
        colciencias_category:'',
         terms: true,
       },
   
       validate: {
         name: (val) => (val.length == 0 ? 'Esta campo es requerido' :  null),
-        leader_id: (val) => (val.length == 0 ? 'Esta campo es requerido' :  null),
+        institution: (val) => (val.length == 0 ? 'Esta campo es requerido' :  null),
         faculty_id: (val) => (val.length == 0 ? 'Esta campo es requerido' :  null),
         colciencias_category: (val) => (val.length == 0 ? 'Esta campo es requerido' :  null),
 
@@ -139,6 +146,7 @@ export function RegisterResearchGroup (props: PaperProps) {
       }}
     >
         
+            <div className={classes.formBox}>
             <Container size="lg">      
             <Paper radius="md" p="xl" withBorder {...props}>
                 
@@ -160,21 +168,37 @@ export function RegisterResearchGroup (props: PaperProps) {
                     onChange={(event) => form.setFieldValue('name', event.currentTarget.value)}
                     error={form.errors.name && 'Nombre inválido'}
                 />
-
                 <TextInput
                     required
-                    label="Identificación del líder:"
-                    value={form.values.leader_id}
-                    onChange={(event) => form.setFieldValue('leader_id', event.currentTarget.value)}
-                    error={form.errors.leader_id && 'id no válido'}
+                    label="Intitución:"
+                    placeholder="ej: Universidad Icesi"
+                    value={form.values.institution}
+                    onChange={(event) => form.setFieldValue('institution', event.currentTarget.value)}
+                    error={form.errors.institution && 'id no válido'}
                 />
-
-                <TextInput
+                <Select
                     required
-                    label="Identificación de la facultad:"
-                    value={form.values.faculty_id}
-                    onChange={(event) => form.setFieldValue('faculty_id', event.currentTarget.value)}
-                    error={form.errors.faculty_id && 'id no válido'}
+                    label="Facultad:"
+                    placeholder="Escoja la facultad a la que pertenece"
+                    data={[
+                        { value: 'CienciasAdministrativas_Economicas', label: 'Ciencias Administrativs y Economicas' },
+                        { value: 'DerechoYcienciasSociales', label: 'Derecho y Ciencias Sociales' },
+                        { value: 'CienciasDeLaSalud', label: 'Ciencias de la Salud' },
+                        { value: 'IngenieriaYdiseno', label: 'Ingenieria y Diseño' },
+                        { value: 'CienciasNaturales', label: 'Ciencias Naturales' },
+                        { value: 'EscuelaCiencasDeLaEducacion', label: 'Escuela de Ciencias de la Educacion' },
+                    ]}
+                />
+               <Select
+                    required
+                    label="Linea de investigacion:"
+                    placeholder="Escoja la linea de investigacion en la que se especializa."
+                    data={[
+                        { value: 'Linea1', label: 'Linea de investigacion A' },
+                        { value: 'Linea2', label: 'Linea de investigacion B' },
+                        { value: 'Linea3', label: 'Linea de investigacion C' },
+                        { value: 'Linea4', label: 'Linea de investigacion D' },
+                    ]}
                 />
                 <Select
                     required
@@ -186,6 +210,13 @@ export function RegisterResearchGroup (props: PaperProps) {
                         { value: 'C', label: 'C' },
                         { value: 'A1', label: 'A1' },
                     ]}
+                />
+                <Textarea
+                    required
+                    label="Descripción:"
+                    value={form.values.description}
+                    onChange={(event) => form.setFieldValue('description', event.currentTarget.value)}
+                    error={form.errors.description && 'id no válido'}
                 />
                 </Stack>
 
@@ -206,6 +237,7 @@ export function RegisterResearchGroup (props: PaperProps) {
             </form>
             </Paper>
             </Container>
+            </div>
     
     </MantineProvider>
     
