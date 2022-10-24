@@ -119,6 +119,7 @@ export function RegisterResearchGroup (props: PaperProps) {
         name: (val) => (val.length == 0 ? 'Esta campo es requerido' :  null),
         institution: (val) => (val.length == 0 ? 'Esta campo es requerido' :  null),
         faculty_id: (val) => (val.length == 0 ? 'Esta campo es requerido' :  null),
+        description: (val) => (val.length == 0 ? 'Esta campo es requerido' :  null),
         colciencias_category: (val) => (val.length == 0 ? 'Esta campo es requerido' :  null),
 
       },
