@@ -17,12 +17,12 @@ import {
   } from '@mantine/core';
 
   const useStyles = createStyles((theme) => ({
-
+    
     formBox:{
       width:600,
       paddingLeft:230,
       paddingRight:230,
-    },
+    },  
     hero: {
       position: 'relative',
       backgroundSize: 'cover',
@@ -201,7 +201,7 @@ export function RegisterResearchGroup (props: PaperProps) {
                         { value: 'Linea3', label: 'Linea de investigacion C' },
                         { value: 'Linea4', label: 'Linea de investigacion D' },
                     ]}
-                />
+                 />
                 <Select
                     required
                     label="Categoria de Colciencias:"
