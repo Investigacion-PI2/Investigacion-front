@@ -3,7 +3,7 @@ import { CustomAppShell } from "./layout/appshell/CustomAppShell";
 import {Login} from "./layout/auth/Login";
 import { Landing } from "./layout/landing/Landing";
 import { RegisterResearchGroup } from "./layout/research_groups/RegisterResearchGroup";
-
+import {DetailedGroup} from "./layout/detail-view/DetailedGroup";
 
 
 
@@ -20,6 +20,7 @@ export function App() {
           <Route path="registerResearchGroup" element={<RegisterResearchGroup/>}></Route>
           <Route path="*" element={<div>NOT FOUND</div>} />
         </Route>
+        <Route path="/detail" element={<DetailedGroup/>}/>
       </Routes>
     </BrowserRouter>
   )
