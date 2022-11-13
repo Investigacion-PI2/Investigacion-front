@@ -4,7 +4,7 @@ import {Login} from "./layout/auth/Login";
 import { Landing } from "./layout/landing/Landing";
 import { RegisterResearchGroup } from "./layout/research_groups/RegisterResearchGroup";
 import {DetailedGroup} from "./layout/detail-view/DetailedGroup";
-
+import {DetailedProject} from "./layout/detail-view/DetailedProject";
 
 
 export function App() {
@@ -20,7 +20,10 @@ export function App() {
           <Route path="registerResearchGroup" element={<RegisterResearchGroup/>}></Route>
           <Route path="*" element={<div>NOT FOUND</div>} />
         </Route>
-        <Route path="/detail" element={<DetailedGroup/>}/>
+        <Route path="/detail" element={<DetailedGroup/>}>
+          
+        </Route>
+        <Route path="/project" element={<DetailedProject/>}/>
       </Routes>
     </BrowserRouter>
   )
