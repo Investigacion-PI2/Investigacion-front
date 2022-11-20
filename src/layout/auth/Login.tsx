@@ -17,6 +17,9 @@ import {
     MantineProvider,
     createStyles,  Title, Overlay
   } from '@mantine/core';
+import axios from '../../services/axios';
+import { useNavigate } from 'react-router-dom';
+import authHeader from '../../services/auth-header';
 
   const useStyles = createStyles((theme) => ({
     hero: {
@@ -115,11 +118,20 @@ export function Login (props: PaperProps) {
       },
   
       validate: {
-        user: (val) => (/^\S+@\S+$/.test(val) ? null : 'Invalid user'),
+        user: (val) => (val.length > 6 ? null : 'Invalid user'),
         password: (val) => (val.length <= 6 ? 'Password should include at least 6 characters' : null),
       },
     });
     const { classes } = useStyles();
+
+    const handleLogin = async (values: typeof form.values) => {
+      const user = await axios
+        .post('auth', 
+        {'username':values.user, 'password':values.password});
+      localStorage.setItem("user", JSON.stringify(user.data));
+      const success = await axios.get('success', {headers: authHeader()})
+      console.log(success.data)
+    };
 
   
   return (
@@ -155,7 +167,7 @@ export function Login (props: PaperProps) {
             </Text>
             </div>
 
-            <form onSubmit={form.onSubmit(() => {})}>
+            <form onSubmit={form.onSubmit(handleLogin)}>
                 <Stack>
 
                 <TextInput
