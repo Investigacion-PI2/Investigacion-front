@@ -125,12 +125,14 @@ export function Login (props: PaperProps) {
     const { classes } = useStyles();
 
     const handleLogin = async (values: typeof form.values) => {
-      const user = await axios
-        .post('auth', 
-        {'username':values.user, 'password':values.password});
-      localStorage.setItem("user", JSON.stringify(user.data));
-      const success = await axios.get('success', {headers: authHeader()})
-      console.log(success.data)
+      try {
+        const user = await axios.post('auth', {'username':values.user, 'password':values.password});
+        localStorage.setItem("user", JSON.stringify(user.data));
+        const success = await axios.get('success', {headers: authHeader()})
+        console.log(success.data)
+      } catch (error) {
+
+      }
     };
 
   

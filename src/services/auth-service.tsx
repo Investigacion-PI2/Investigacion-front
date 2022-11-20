@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'http://localhost:8080/research/api/auth';
+const URL = 'https://domain/research/api/auth';
 
 const login = (username: string, password: string) => {
     return axios

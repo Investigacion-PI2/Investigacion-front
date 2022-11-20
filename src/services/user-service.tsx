@@ -1,7 +1,7 @@
 import axios from 'axios';
 import authHeader from './auth-header';
 
-const URL = 'http://localhost:8080/research/api/auth';
+const URL = 'https://domain/research/api/auth';
 
 const getUserData = () => {
     return axios

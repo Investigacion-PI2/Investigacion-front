@@ -21,20 +21,16 @@ app.post('/auth', async(req, res) => {
             `${URL}/auth/authenticate`, 
             req.body
         )
-        .then(response => {
-            if (response.data.token) {
-                //localStorage.setItem("user", JSON.stringify(response.data));
-            }
-            return response.data;
-        })
-        .catch((e) => console.log(e))
-    
-    res.json(token)
+        .then((response) => {
+            res.json(response.data)
+        }).catch((error) => {
+            res.status(error.response.status).json(error.message);
+        });
 })
 
 app.get('/success', async(req,  res) => {
     const success = await axios
         .get(`${URL}/auth/success`, {headers:{Authorization:req.headers.authorization}})
-        .catch((e) => console.log(e))
+        .catch((e) => console.log(e));
     res.json(success.data)
 })
